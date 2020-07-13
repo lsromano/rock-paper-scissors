@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS</title>
+</head>
+<body>
+    <script>
+        function computerPlay() {
+            let rPS = ["ROCK", "PAPER", "SCISSORS"];
+            return (rPS[Math.floor(Math.random() * rPS.length)]);
+        }
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = playerSelection.toUpperCase();
+            if (playerSelection == "ROCK") {
+                if (computerSelection == "ROCK") {
+                   return "a tie";
+                } else if (computerSelection == "PAPER") {
+                   return "You Lose! Paper beats Rock";
+                } else if (computerSelection == "SCISSORS"){
+                   return "You Win! Rock beats Scissors";
+                }
+            } else if (playerSelection == "PAPER") {
+                if (computerSelection == "ROCK") {
+                    return "You Win! Paper beats Rock";
+                } else if (computerSelection == "PAPER") {
+                    return "a tie";
+                } else if (computerSelection == "SCISSORS"){
+                    return "You Lose! Scissors beats Paper";
+                }
+            } else if (playerSelection == "SCISSORS") {
+                if (computerSelection == "ROCK") {
+                    return "You Lose! Rock beats Scissors";
+                } else if (computerSelection == "PAPER") {
+                    return "You Win! Scissors beats Paper";
+                } else if (playerSelection == "SCISSORS"){
+                    return "a tie";
+                }
+            } 
+        }
+
+        function game () {
+            for (let x = 0 ; x < 5 ; x++){
+                userPlay = window.prompt("Rock,Paper, Scissors ?");
+                console.log(playRound(userPlay, computerPlay()));
+            }
+
+        }
+
+        game();
+
+    </script>
+</body>
+</html>
